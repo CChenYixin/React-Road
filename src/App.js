@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import fetch from 'isomorphic-fetch'
+import PropTypes from 'prop-types'
 
 
 
@@ -27,6 +29,13 @@ const Search =({value,onChange,onSubmit,children}) => {
       </button>
     </form>
   )
+}
+
+Search.propTypes = {
+  value : PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  children: PropTypes.node
 }
 
 const largeColumn = {
@@ -65,8 +74,12 @@ const Table = ({ list,onDismiss }) => {
     </div>
   )
 }
+Table.propTypes = {
+  list: PropTypes.array.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+};
 
-const Button = ({onClick,className ='',children}) => {
+const Button = ({onClick,className,children}) => {
   return(
     <button
       onClick={onClick}
@@ -76,6 +89,16 @@ const Button = ({onClick,className ='',children}) => {
       {children}
     </button>
   )
+}
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+}
+
+Button.defaultProps = {
+  className: ''
 }
 
 class App extends Component {
@@ -224,4 +247,10 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
+
+export {
+  Button,
+  Search,
+  Table
+}
