@@ -32,8 +32,16 @@
   padding: 10px;
   background: #ffffff;
   border: 1px solid #e3e3e3;
+  border-radius: 2px;
 }
-
+.table-row:hover{
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+.table-row:hover a{
+  color: #fff;
+}
 .table-header > span {
   overflow: hidden;
   text-overflow: ellipsis;
